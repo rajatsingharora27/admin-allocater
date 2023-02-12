@@ -30,6 +30,10 @@ const AdminSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
+  hasDeleteAccess: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = mongoose.model("Admin", AdminSchema);

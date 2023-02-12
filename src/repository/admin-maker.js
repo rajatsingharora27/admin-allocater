@@ -10,7 +10,7 @@ class AdminRepository {
       const result = await adminSchema.create(data);
       return result;
     } catch (error) {
-      console.log(error.name, error.message);
+      console.log();
       if (error.name === "ValidationError") {
         throw new ValidationError(
           "validation Error",
@@ -19,6 +19,19 @@ class AdminRepository {
           StatusCodes.INTERNAL_SERVER_ERROR
         );
       }
+      throw new ApplicationError(
+        "RepoError",
+        "Error in Repository",
+        "Can't store the data",
+        StatusCodes.INTERNAL_SERVER_ERROR
+      );
+    }
+  }
+  async findUser(data) {
+    try {
+      const isEmail = await adminSchema.find({ email: data });
+      return isEmail;
+    } catch (error) {
       throw new ApplicationError(
         "RepoError",
         "Error in Repository",
