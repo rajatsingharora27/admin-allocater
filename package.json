@@ -4,7 +4,7 @@
   "description": "this is the basic project which will allocate the admin role to the people to be used by the authentic person at the top level of the organisation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx nodemon src/index.js"
   },
   "keywords": [
     "admin",
@@ -15,6 +15,9 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-validator": "^6.14.3",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.1",
     "nodemon": "^2.0.20"
   }
