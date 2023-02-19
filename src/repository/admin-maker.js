@@ -29,8 +29,8 @@ class AdminRepository {
   }
   async findUser(data) {
     try {
-      const isEmail = await adminSchema.find({ email: data });
-      return isEmail;
+      const user = await adminSchema.find(data);
+      return user;
     } catch (error) {
       throw new ApplicationError(
         "RepoError",

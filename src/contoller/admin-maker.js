@@ -26,6 +26,24 @@ class AdminController {
       });
     }
   }
+
+  async findUser(req, res) {
+    try {
+      const result = await admininService.findUser(req.body);
+
+      res.status(StatusCodes.OK).json({
+        message: "success",
+        result: result,
+        error: {},
+      });
+    } catch (error) {
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        message: "fail",
+        result: {},
+        error: error,
+      });
+    }
+  }
 }
 
 module.exports = AdminController;

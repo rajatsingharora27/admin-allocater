@@ -40,6 +40,16 @@ class AdminService {
       throw error;
     }
   }
+
+  async findUser(userData) {
+    try {
+      const user = await this.adminRepo.findUser(userData);
+      return user;
+    } catch (error) {
+      console.log("Error in service Layer");
+      throw error;
+    }
+  }
 }
 
 module.exports = AdminService;
